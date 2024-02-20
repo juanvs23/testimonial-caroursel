@@ -40,7 +40,7 @@ body {
   .testimonial-rating {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 3px;
     margin-top: 15px;
     .full-star {
       color: #ffc107;
@@ -50,6 +50,10 @@ body {
     .empty-star {
       color: #ffc107;
       stroke: #ffc107;
+    }
+    svg {
+      width: 15px;
+      height: 15px;
     }
   }
   .testimonial-pagination {
@@ -84,6 +88,7 @@ body {
           font-family: inherit;
           font-style: italic;
           text-align: center;
+          min-height: 110px;
         }
         .testimonial-info {
           margin-top: 25px;
