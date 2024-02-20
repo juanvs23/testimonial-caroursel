@@ -1,2 +1,63 @@
-const a=document.querySelectorAll(".testimonial-carousel");(function(){a&&a.forEach(e=>{const o=e.dataset.desktop,n=e.dataset.tablet,s=e.dataset.mobile,i=e.dataset.loop=="true",d=e.dataset.speed,l=e.dataset.autoplayspeed,t=e.dataset.autoplay=="true"?{delay:l}:!1,p=e.dataset.pagination=="true"?{el:".testimonial-pagination",clickable:!0}:!1,r=e.dataset.navigation=="true"?{nextEl:".testimonial-button-next",prevEl:".testimonial-button-prev"}:!1;console.log(typeof e.dataset.loop),new Swiper(".testimonial-carousel",{loop:i,freeMode:!0,observeParents:!0,observeSlideChildren:!0,pauseOnMouseEnter:!0,direction:"horizontal",speed:d,autoplay:t,breakpoints:{1200:{slidesPerView:o},768:{slidesPerView:n},0:{slidesPerView:s}},autoplay:t,pagination:p,navigation:r})})})();
-//# sourceMappingURL=main.js.map
+const testimonialCarousels = document.querySelectorAll('.testimonial-carousel');
+
+(function(){
+    
+if (testimonialCarousels) {
+    testimonialCarousels.forEach((testimonialCarousel) => {
+        /**
+         *     data-desktop="<?php echo $desktop; ?>"
+        data-tablet="<?php echo $tablet; ?>"
+        data-mobile="<?php echo $mobile; ?>"
+        data-arrow="<?php echo $show_arrows; ?>"
+        data-dots="<?php echo $show_dots; ?>"
+        data-autoplay="<?php echo $autoplay; ?>"
+        data-autoplayspeed="<?php echo $autoplay_speed; ?>">
+         */
+    
+      const SlidesDesktop = testimonialCarousel.dataset.desktop;
+      const SlidesTablet = testimonialCarousel.dataset.tablet;
+      const SlidesMobile = testimonialCarousel.dataset.mobile;
+      const SlideLoop = testimonialCarousel.dataset.loop == 'true' ? true : false;
+      const speed = testimonialCarousel.dataset.speed;
+      const autoPlaySpeed = testimonialCarousel.dataset.autoplayspeed;
+      const SlideAutoPlay = testimonialCarousel.dataset.autoplay == 'true' ? {delay: autoPlaySpeed} : false;
+      const paginationButton = testimonialCarousel.dataset.pagination == 'true' ?  {
+        el: '.testimonial-pagination',
+        clickable: true,
+    } : false;
+    const navigationButtons = testimonialCarousel.dataset.navigation == 'true'?  {
+        nextEl: '.testimonial-button-next',
+        prevEl: '.testimonial-button-prev',
+    }:false
+
+        console.log(typeof testimonialCarousel.dataset.loop);
+        const testimonialSwiper = new Swiper('.testimonial-carousel', {
+           // modules: [Navigation, Pagination, Autoplay,FreeMode],
+            loop: SlideLoop ,
+            freeMode: true,
+            observeParents: true,
+          
+            observeSlideChildren: true,
+            pauseOnMouseEnter: true,
+           
+            direction: 'horizontal',
+            speed: speed,
+            autoplay:SlideAutoPlay,
+            breakpoints: {
+                1200:{
+                    slidesPerView: SlidesDesktop
+                },
+                768:{
+                    slidesPerView: SlidesTablet
+                },
+                0:{
+                    slidesPerView: SlidesMobile
+                }
+            },
+            autoplay:SlideAutoPlay,
+            pagination:paginationButton,
+            navigation:navigationButtons,
+        })
+    }) 
+}
+})()
