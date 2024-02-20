@@ -1,4 +1,4 @@
-# Testmimonial carousel#
+# Testmimonial carousel
 
 ## A testimonial carousel
 
