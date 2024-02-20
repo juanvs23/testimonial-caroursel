@@ -3,17 +3,20 @@ Namespace ZtgroupTestimonialSlider;
 
 class InitPlugin{
     public function __construct(){
-        add_action('wp_enqueue_scripts', array($this, 'scripts_and_styles'));
+        add_action('wp_enqueue_scripts', array($this, 'scripts_and_styles'),100000);
      
     }
     public function scripts_and_styles(){
-        wp_enqueue_style('ztgroup-testimonial-slider', ZTGROUP_TESTIMONIAL_SLIDER_URL .'assets/css/styles.css', array(), ZTGROUP_TESTIMONIAL_SLIDER_VERSION);
-        wp_enqueue_script('ztgroup-testimonial-slider', ZTGROUP_TESTIMONIAL_SLIDER_URL . 'assets/js/scripts.js', array(), ZTGROUP_TESTIMONIAL_SLIDER_VERSION, true);
+        wp_enqueue_style('ztgroup-swiper', ZTGROUP_TESTIMONIAL_SLIDER_URL . 'assets/css/swiper-bundle.min.css', array(), ZTGROUP_TESTIMONIAL_SLIDER_VERSION);
+        wp_enqueue_style('ztgroup-testimonial-slider', ZTGROUP_TESTIMONIAL_SLIDER_URL .'assets/css/main.css', array('ztgroup-swiper'), ZTGROUP_TESTIMONIAL_SLIDER_VERSION);
+        wp_enqueue_script('ztgroup-swiper-js', ZTGROUP_TESTIMONIAL_SLIDER_URL . 'assets/js/swiper-bundle.min.js', array(), ZTGROUP_TESTIMONIAL_SLIDER_VERSION, true);
+        wp_enqueue_script('ztgroup-testimonial-slider', ZTGROUP_TESTIMONIAL_SLIDER_URL . 'assets/js/main.js', array('ztgroup-swiper-js'), ZTGROUP_TESTIMONIAL_SLIDER_VERSION, true);
     }
 
     
 
 }
+
 new InitPlugin();
 
 function  ztgroup_activation_plugin_hook(){
@@ -41,3 +44,4 @@ require ZTGROUP_TESTIMONIAL_SLIDER_PATH . 'includes/post-types/testimonials.php'
 require ZTGROUP_TESTIMONIAL_SLIDER_PATH . 'includes/taxonomia/testimonial-categories.php';
 require ZTGROUP_TESTIMONIAL_SLIDER_PATH . 'includes/metada/metadata.php';
 require ZTGROUP_TESTIMONIAL_SLIDER_PATH . 'includes/shortcode/shortcode.php';
+require ZTGROUP_TESTIMONIAL_SLIDER_PATH . 'includes/filters/filters.php';

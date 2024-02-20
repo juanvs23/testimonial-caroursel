@@ -1,1 +1,95 @@
+html,
+body {
+  overflow-x: hidden;
+}
+.testimonial-button-prev,
+.testimonial-button-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  border: none;
+  background-color: transparent;
+  color: #3f3f3f;
+  cursor: pointer;
+  transition: 0.5s ease;
+  &:hover {
+    color: #000;
+    background-color: transparent;
+    border: none;
+  }
+  &:focus {
+    outline: none;
+  }
+  svg {
+    outline: none;
+    width: 30px;
+    height: 30px;
+  }
+}
+.testimonial-button-prev {
+  left: -25px;
+}
+.testimonial-button-next {
+  right: -25px;
+}
 
+.testimonial-wrapper {
+  position: relative;
+  width: 100%;
+  .testimonial-pagination {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 35px;
+    margin-bottom: 40px;
+    .swiper-pagination-bullet {
+      width: 10px;
+      height: 10px;
+    }
+  }
+  .testimonial-carousel {
+    overflow: hidden;
+    align-items: stretch;
+    .testimonial-slide {
+      display: flex;
+      align-items: stretch;
+      .testimonial {
+        position: relative;
+        width: calc(100% - 30px);
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        .tesimonial-content {
+          margin-top: 15px;
+          font-size: 15px;
+          line-height: 20px;
+          font-family: inherit;
+          font-style: italic;
+          text-align: center;
+        }
+        .testimonial-info {
+          margin-top: 25px;
+          .testimonial-name {
+            text-align: center;
+            font-size: 15px;
+          }
+          .testimonial-job {
+            text-align: center;
+            font-size: 15px;
+          }
+          .testimonial-company {
+            text-align: center;
+            font-size: 15px;
+          }
+          .testimonial-city {
+            text-align: center;
+            font-size: 15px;
+          }
+        }
+      }
+    }
+  }
+}
