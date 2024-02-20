@@ -1,6 +1,6 @@
-#Testmimonial carousel
+#Testmimonial carousel#
 
-##A testimonial carousel
+##A testimonial carousel##
 
 This carousel was make with swiper slider
 
