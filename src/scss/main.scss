@@ -37,6 +37,21 @@ body {
 .testimonial-wrapper {
   position: relative;
   width: 100%;
+  .testimonial-rating {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+    .full-star {
+      color: #ffc107;
+      fill: #ffc107;
+      stroke: #ffc107;
+    }
+    .empty-star {
+      color: #ffc107;
+      stroke: #ffc107;
+    }
+  }
   .testimonial-pagination {
     display: flex;
     justify-content: center;

@@ -15,6 +15,7 @@ function ztgroup_testimonial_function( $atts ) {
             'loop' => 'true',
             'pagination' => 'false',
             'navigation' => 'false',
+            'rating' => 'false',
 
 		),
 		$atts,
@@ -30,8 +31,10 @@ function ztgroup_testimonial_function( $atts ) {
     $loop = $atts['loop'];
     $pagination = $atts['pagination'];
     $navigation = $atts['navigation'];
+    set_query_var('rating', $atts['rating']);
 
     ob_start();
+    
     ?>
     <div class="testimonial-wrapper">
         <div 
